@@ -4,11 +4,10 @@ using EmployeeManagementSystem.Models;
 using EmployeeManagementSystem.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+ 
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Security.Cryptography;
+ 
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +18,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRepository<Employee>, EmployeeRepository>();
+builder.Services.AddScoped<IGenericRepository<Restaurant>, RestaurantRepository>();
+builder.Services.AddScoped<IGenericRepository<Menu>, MenuRepository>();
 
 builder.Services.AddControllers();
 

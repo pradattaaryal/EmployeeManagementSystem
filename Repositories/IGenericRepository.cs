@@ -1,6 +1,9 @@
-﻿namespace EmployeeManagementSystem.Repositories
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace EmployeeManagementSystem.Repositories
 {
-    public interface IRepository<T> where T : class
+    public interface IGenericRepository<T> where T : class
     {
         Task<IEnumerable<T>> GetAll();
         Task<T> Get(int id);
